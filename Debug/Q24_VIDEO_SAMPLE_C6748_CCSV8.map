@@ -1,0 +1,858 @@
+******************************************************************************
+               TMS320C6x Linker PC v8.2.2                      
+******************************************************************************
+>> Linked Sat May 12 15:16:04 2018
+
+OUTPUT FILE NAME:   <Q24_VIDEO_SAMPLE_C6748_CCSV8.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: c2000000
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  L2                    00800000   00040000  00000000  00040000  RWIX
+  L1P                   00e00000   00008000  00000000  00008000  RWIX
+  L1D                   00f00000   00008000  00000000  00008000  RWIX
+  share                 80000000   00020000  00000000  00020000  RWIX
+  dsp_ddrii             c2000000   01000000  0010f824  00ef07dc  RWIX
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+c2000000    c2000000    000000a0   000000a0    r-x
+  c2000000    c2000000    000000a0   000000a0    r-x .text:_c_int00
+c20000a0    c20000a0    0010032e   00000000    rw-
+  c20000a0    c20000a0    00100000   00000000    rw- .stack
+  c21000a0    c21000a0    00000328   00000000    rw- .fardata
+  c21003c8    c21003c8    00000006   00000000    rw- .neardata
+c21003d0    c21003d0    00000008   00000000    r--
+  c21003d0    c21003d0    00000008   00000000    r-- .rodata
+c21003d8    c21003d8    00000008   00000000    rw-
+  c21003d8    c21003d8    00000008   00000000    rw- .bss
+c2100400    c2100400    0000e23c   0000e23c    r-x
+  c2100400    c2100400    0000c820   0000c820    r-x .text
+  c210cc20    c210cc20    00001a1c   00001a1c    r-- .const
+c210e640    c210e640    000010a8   00000000    rw-
+  c210e640    c210e640    00000800   00000000    rw- .sysmem
+  c210ee40    c210ee40    00000788   00000000    rw- .far
+  c210f5c8    c210f5c8    00000120   00000000    rw- .cio
+c210f6e8    c210f6e8    00000160   00000160    r--
+  c210f6e8    c210f6e8    00000088   00000088    r-- .switch
+  c210f770    c210f770    000000d8   000000d8    r-- .cinit
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.cinit     0    c210f770    000000d8     
+                  c210f770    0000007d     (.cinit..fardata.load) [load image, compression = rle]
+                  c210f7ed    0000000e     (.cinit..rodata.load) [load image, compression = rle]
+                  c210f7fb    0000000b     (.cinit..far.load) [load image, compression = rle]
+                  c210f806    00000009     (.cinit..bss.load) [load image, compression = rle]
+                  c210f80f    00000009     (.cinit..neardata.load) [load image, compression = rle]
+                  c210f818    00000008     (__TI_handler_table)
+                  c210f820    00000028     (__TI_cinit_table)
+
+.text:_c_int00 
+*          0    c2000000    000000a0     
+                  c2000000    00000080     rts6740_elf.lib : boot.obj (.text:_c_int00)
+                  c2000080    00000010                     : autoinit.obj ($Tramp$S$$_auto_init_elf)
+                  c2000090    00000010                     : pre_init.obj ($Tramp$S$$_system_pre_init)
+
+.stack     0    c20000a0    00100000     UNINITIALIZED
+                  c20000a0    00000008     rts6740_elf.lib : boot.obj (.stack)
+                  c20000a8    000ffff8     --HOLE--
+
+.bss       0    c21003d8    00000008     UNINITIALIZED
+                  c21003d8    00000004     rk6748_i2c.obj (.bss)
+                  c21003dc    00000004     (.common:LBufRecvCounter)
+
+.text      0    c2100400    0000c820     
+                  c2100400    00001ce0     rts6740_elf.lib : _printfi.obj (.text:__TI_printfi)
+                  c21020e0    00001240     interrupt.obj (.text:retain)
+                  c2103320    00000f80     ov5640.obj (.text)
+                  c21042a0    00000880     rk6748.obj (.text)
+                  c2104b20    00000680     rts6740_elf.lib : _printfi.obj (.text:_pconv_a)
+                  c21051a0    00000620     interrupt.obj (.text)
+                  c21057c0    000005c0     rts6740_elf.lib : divd.obj (.text:__c6xabi_divd)
+                  c2105d80    000005a0     interrupt_gpio.obj (.text)
+                  c2106320    00000560     rk6748_uart.obj (.text)
+                  c2106880    00000520     rk6748_vpif.obj (.text)
+                  c2106da0    00000500     rts6740_elf.lib : _printfi.obj (.text:_pconv_g)
+                  c21072a0    00000500     rk6748_lcd.obj (.text)
+                  c21077a0    00000440     rts6740_elf.lib : memory.obj (.text:free)
+                  c2107be0    00000420                     : _printfi.obj (.text:_pconv_e)
+                  c2108000    000003e0                     : fputs.obj (.text:fputs)
+                  c21083e0    000003a0     rk6748_i2c.obj (.text)
+                  c2108780    000003a0     test_key_interrupt.obj (.text)
+                  c2108b20    000002a0     rts6740_elf.lib : _printfi.obj (.text:_pconv_f)
+                  c2108dc0    000002a0                     : _printfi.obj (.text:fcvt)
+                  c2109060    000002a0     rk6748_gpio.obj (.text)
+                  c2109300    000002a0     rk6748_timer.obj (.text)
+                  c21095a0    00000260     rts6740_elf.lib : imath64.obj (.text:__c6xabi_divull)
+                  c2109800    00000220                     : fputc.obj (.text:fputc)
+                  c2109a20    00000220                     : setvbuf.obj (.text:setvbuf)
+                  c2109c40    00000200                     : _printfi.obj (.text:_ltostr)
+                  c2109e40    000001c0                     : imath40.obj (.text:__c6xabi_divul)
+                  c210a000    00000200     intvecs.obj (.text)
+                  c210a200    000001c0     rts6740_elf.lib : frexp.obj (.text:frexp)
+                  c210a3c0    000001a0                     : hostrename.obj (.text:HOSTrename)
+                  c210a560    00000180                     : ldexp.obj (.text:ldexp)
+                  c210a6e0    00000180                     : memory.obj (.text:malloc)
+                  c210a860    00000160                     : autoinit.obj (.text:_auto_init_elf)
+                  c210a9c0    00000140                     : fclose.obj (.text:__TI_closefile)
+                  c210ab00    00000140                     : getdevice.obj (.text:getdevice)
+                  c210ac40    00000120                     : fseek.obj (.text:fseek)
+                  c210ad60    00000120     test_camera.obj (.text)
+                  c210ae80    00000120     test_led.obj (.text)
+                  c210afa0    00000100     rts6740_elf.lib : copy_decompress_rle.obj (.text:__TI_decompress_rle_core)
+                  c210b0a0    00000100                     : _io_perm.obj (.text:__TI_wrt_ok)
+                  c210b1a0    00000100                     : atoi.obj (.text:atoi)
+                  c210b2a0    00000100                     : cpy_tbl.obj (.text:copy_in)
+                  c210b3a0    00000100     main.obj (.text)
+                  c210b4a0    00000100     test_uart.obj (.text)
+                  c210b5a0    000000e0     rts6740_elf.lib : hostlseek.obj (.text:HOSTlseek)
+                  c210b680    000000e0                     : hostopen.obj (.text:HOSTopen)
+                  c210b760    000000e0                     : hostwrite.obj (.text:HOSTwrite)
+                  c210b840    000000e0                     : close.obj (.text:close)
+                  c210b920    000000e0                     : exit.obj (.text:exit)
+                  c210ba00    000000e0                     : ltoa.obj (.text:ltoa)
+                  c210bae0    000000e0                     : memset.obj (.text:memset)
+                  c210bbc0    000000e0                     : printf.obj (.text:printf)
+                  c210bca0    000000c0                     : hostread.obj (.text:HOSTread)
+                  c210bd60    000000c0                     : hostunlink.obj (.text:HOSTunlink)
+                  c210be20    000000c0                     : fflush.obj (.text:__TI_doflush)
+                  c210bee0    000000c0                     : divu.obj (.text:__divu)
+                  c210bfa0    000000c0                     : _printfi.obj (.text:_ecpy)
+                  c210c060    000000c0                     : memory.obj (.text:mremove)
+                  c210c120    000000c0                     : tls.obj (.text:tls:init:__TI_tls_init)
+                  c210c1e0    000000a0                     : hostclose.obj (.text:HOSTclose)
+                  c210c280    000000a0                     : fopen.obj (.text:__TI_cleanup)
+                  c210c320    000000a0                     : memory.obj (.text:_minit)
+                  c210c3c0    000000a0                     : memcpy64.obj (.text:memcpy)
+                  c210c460    000000a0                     : memory.obj (.text:minsert)
+                  c210c500    00000080                     : trgmsg.obj (.text:__TI_readmsg)
+                  c210c580    00000080                     : llshift.obj (.text:__c6xabi_llshl)
+                  c210c600    00000080                     : getdevice.obj (.text:finddevice)
+                  c210c680    00000080                     : unlink.obj (.text:unlink)
+                  c210c700    00000060                     : trgmsg.obj (.text:__TI_writemsg)
+                  c210c760    00000060                     : llshift.obj (.text:__c6xabi_llshru)
+                  c210c7c0    00000060                     : imath64.obj (.text:_subcull)
+                  c210c820    00000060                     : lseek.obj (.text:lseek)
+                  c210c880    00000060                     : memccpy.obj (.text:memccpy)
+                  c210c8e0    00000060                     : sprintf.obj (.text:sprintf)
+                  c210c940    00000060                     : write.obj (.text:write)
+                  c210c9a0    00000040                     : frcmpyd_div.obj (.text:__TI_frcmpyd_div)
+                  c210c9e0    00000040                     : isinf.obj (.text:__c6xabi_isinf)
+                  c210ca20    00000040                     : _printfi.obj (.text:__c6xabi_isnan)
+                  c210ca60    00000040                     : args_main.obj (.text:_args_main)
+                  c210caa0    00000040                     : sprintf.obj (.text:_outs)
+                  c210cae0    00000020                     : errno.obj (.text:__c6xabi_errno_addr)
+                  c210cb00    00000020                     : _lock.obj (.text:_nop)
+                  c210cb20    00000020                     : printf.obj (.text:_outc)
+                  c210cb40    00000020                     : sprintf.obj (.text:_outc)
+                  c210cb60    00000020                     : printf.obj (.text:_outs)
+                  c210cb80    00000020                     : startup.obj (.text:_system_post_cinit)
+                  c210cba0    00000020                     : pre_init.obj (.text:_system_pre_init)
+                  c210cbc0    00000020                     : exit.obj (.text:abort)
+                  c210cbe0    00000020                     : copy_decompress_none.obj (.text:decompress:none:__TI_decompress_none)
+                  c210cc00    00000020                     : copy_decompress_rle.obj (.text:decompress:rle24:__TI_decompress_rle24)
+
+.const     0    c210cc20    00001a1c     
+                  c210cc20    00000fed     ov5640.obj (.const:.string:OV5640_AF_Config)
+                  c210dc0d    00000003     --HOLE-- [fill = 0]
+                  c210dc10    0000033c     ov5640.obj (.const:ov5640_init_reg_tbl)
+                  c210df4c    00000114     test_camera.obj (.const:.string)
+                  c210e060    00000101     rts6740_elf.lib : ctype.obj (.const:.string:_ctypes_)
+                  c210e161    00000003     --HOLE-- [fill = 0]
+                  c210e164    000000b4     rk6748_lcd.obj (.const:.string)
+                  c210e218    000000b4     ov5640.obj (.const:ov5640_rgb565_reg_tbl)
+                  c210e2cc    000000b0     test_key_interrupt.obj (.const:.string)
+                  c210e37c    00000004     --HOLE-- [fill = 0]
+                  c210e380    000000a4     ov5640.obj (.const:OV5640_jpeg_reg_tbl)
+                  c210e424    00000004     --HOLE-- [fill = 0]
+                  c210e428    00000080     rk6748_gpio.obj (.const:bitval_u32)
+                  c210e4a8    00000074     test_led.obj (.const:.string)
+                  c210e51c    00000054     rk6748.obj (.const:.string)
+                  c210e570    0000002a     ov5640.obj (.const:OV5640_EXPOSURE_TBL)
+                  c210e59a    00000006     --HOLE-- [fill = 0]
+                  c210e5a0    0000002a     ov5640.obj (.const:OV5640_SATURATION_TBL)
+                  c210e5ca    00000002     --HOLE-- [fill = 0]
+                  c210e5cc    00000024     rts6740_elf.lib : _printfi.obj (.const:.string)
+                  c210e5f0    00000023     ov5640.obj (.const:OV5640_LIGHTMODE_TBL)
+                  c210e613    00000005     --HOLE-- [fill = 0]
+                  c210e618    00000015     ov5640.obj (.const:OV5640_EFFECTS_TBL)
+                  c210e62d    00000003     --HOLE-- [fill = 0]
+                  c210e630    0000000c     ov5640.obj (.const:.string)
+
+.sysmem    0    c210e640    00000800     UNINITIALIZED
+                  c210e640    00000008     rts6740_elf.lib : memory.obj (.sysmem)
+                  c210e648    000007f8     --HOLE--
+
+.far       0    c210ee40    00000788     UNINITIALIZED
+                  c210ee40    00000400     (.common:LRecvBuf)
+                  c210f240    00000200     interrupt.obj (.far:c674xECMtbl)
+                  c210f440    00000140     (.common:__TI_tmpnams)
+                  c210f580    00000040     interrupt.obj (.far:c674xISRtbl)
+                  c210f5c0    00000008     (.common:parmbuf)
+
+.cio       0    c210f5c8    00000120     UNINITIALIZED
+                  c210f5c8    00000120     rts6740_elf.lib : trgmsg.obj (.cio)
+
+.switch    0    c210f6e8    00000088     
+                  c210f6e8    00000038     rts6740_elf.lib : _printfi.obj (.switch:__TI_printfi)
+                  c210f720    00000024     rk6748_gpio.obj (.switch:getRegisterBankAndBit)
+                  c210f744    0000001c     ov5640.obj (.switch:OV5640_Contrast)
+                  c210f760    00000010     interrupt_gpio.obj (.switch:GPIOIntTypeSet)
+
+.init_array 
+*          0    c2000000    00000000     UNINITIALIZED
+
+.fardata   0    c21000a0    00000328     UNINITIALIZED
+                  c21000a0    000001e0     rts6740_elf.lib : defs.obj (.fardata:_ftable)
+                  c2100280    000000a0                     : write.obj (.fardata:_stream)
+                  c2100320    00000078                     : write.obj (.fardata:_device)
+                  c2100398    0000000c     rk6748_uart.obj (.fardata:RK6748_uartBase)
+                  c21003a4    0000000c     rts6740_elf.lib : exit.obj (.fardata)
+                  c21003b0    00000008                     : memory.obj (.fardata)
+                  c21003b8    00000004                     : _lock.obj (.fardata:_lock)
+                  c21003bc    00000004                     : _lock.obj (.fardata:_unlock)
+                  c21003c0    00000004                     : defs.obj (.fardata)
+                  c21003c4    00000004                     : errno.obj (.fardata)
+
+.neardata 
+*          0    c21003c8    00000006     UNINITIALIZED
+                  c21003c8    00000004     test_key_interrupt.obj (.neardata)
+                  c21003cc    00000002     main.obj (.neardata)
+
+.rodata    0    c21003d0    00000008     UNINITIALIZED
+                  c21003d0    00000008     rk6748_lcd.obj (.rodata)
+
+MODULE SUMMARY
+
+       Module                     code    ro data   rw data
+       ------                     ----    -------   -------
+    .\src\
+       ov5640.obj                 3968    5429      0      
+       interrupt.obj              6240    0         576    
+       rk6748_uart.obj            1376    0         1040   
+       rk6748.obj                 2176    84        0      
+       rk6748_lcd.obj             1280    188       0      
+       interrupt_gpio.obj         1440    16        0      
+       rk6748_vpif.obj            1312    0         0      
+       test_key_interrupt.obj     928     176       4      
+       rk6748_i2c.obj             928     0         4      
+       rk6748_gpio.obj            672     164       0      
+       rk6748_timer.obj           672     0         0      
+       test_camera.obj            288     276       0      
+       intvecs.obj                512     0         0      
+       test_led.obj               288     116       0      
+       main.obj                   256     0         2      
+       test_uart.obj              256     0         0      
+    +--+--------------------------+-------+---------+---------+
+       Total:                     22592   6449      1626   
+                                                           
+    D:\opt\ti\ccsv8\tools\compiler\ti-cgt-c6000_8.2.2\lib\rts6740_elf.lib
+       _printfi.obj               13504   92        0      
+       memory.obj                 1984    0         8      
+       divd.obj                   1472    0         0      
+       fputs.obj                  992     0         0      
+       defs.obj                   0       0         804    
+       imath64.obj                704     0         0      
+       fputc.obj                  544     0         0      
+       setvbuf.obj                544     0         0      
+       trgmsg.obj                 224     0         288    
+       frexp.obj                  448     0         0      
+       getdevice.obj              448     0         0      
+       imath40.obj                448     0         0      
+       hostrename.obj             416     0         0      
+       ldexp.obj                  384     0         0      
+       write.obj                  96      0         280    
+       autoinit.obj               368     0         0      
+       fclose.obj                 320     0         0      
+       copy_decompress_rle.obj    288     0         0      
+       fseek.obj                  288     0         0      
+       printf.obj                 288     0         0      
+       exit.obj                   256     0         12     
+       ctype.obj                  0       257       0      
+       _io_perm.obj               256     0         0      
+       atoi.obj                   256     0         0      
+       cpy_tbl.obj                256     0         0      
+       hostopen.obj               224     0         8      
+       close.obj                  224     0         0      
+       hostlseek.obj              224     0         0      
+       hostwrite.obj              224     0         0      
+       llshift.obj                224     0         0      
+       ltoa.obj                   224     0         0      
+       memset.obj                 224     0         0      
+       divu.obj                   192     0         0      
+       fflush.obj                 192     0         0      
+       hostread.obj               192     0         0      
+       hostunlink.obj             192     0         0      
+       sprintf.obj                192     0         0      
+       tls.obj                    192     0         0      
+       fopen.obj                  160     0         0      
+       hostclose.obj              160     0         0      
+       memcpy64.obj               160     0         0      
+       boot.obj                   128     0         0      
+       unlink.obj                 128     0         0      
+       lseek.obj                  96      0         0      
+       memccpy.obj                96      0         0      
+       args_main.obj              64      0         0      
+       frcmpyd_div.obj            64      0         0      
+       isinf.obj                  64      0         0      
+       pre_init.obj               48      0         0      
+       _lock.obj                  32      0         8      
+       errno.obj                  32      0         4      
+       copy_decompress_none.obj   32      0         0      
+       startup.obj                32      0         0      
+    +--+--------------------------+-------+---------+---------+
+       Total:                     28800   349       1412   
+                                                           
+       Heap:                      0       0         2048   
+       Stack:                     0       0         1048576
+       Linker Generated:          0       216       0      
+    +--+--------------------------+-------+---------+---------+
+       Grand Total:               51392   7014      1053662
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ c210f820 records: 5, size/record: 8, table size: 40
+	.fardata: load addr=c210f770, load size=0000007d bytes, run addr=c21000a0, run size=00000328 bytes, compression=rle
+	.rodata: load addr=c210f7ed, load size=0000000e bytes, run addr=c21003d0, run size=00000008 bytes, compression=rle
+	.far: load addr=c210f7fb, load size=0000000b bytes, run addr=c210ee40, run size=00000788 bytes, compression=rle
+	.bss: load addr=c210f806, load size=00000009 bytes, run addr=c21003d8, run size=00000008 bytes, compression=rle
+	.neardata: load addr=c210f80f, load size=00000009 bytes, run addr=c21003c8, run size=00000006 bytes, compression=rle
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ c210f818 records: 2, size/record: 4, table size: 8
+	index: 0, handler: __TI_decompress_rle24
+	index: 1, handler: __TI_decompress_none
+
+
+FAR CALL TRAMPOLINES
+
+callee name               trampoline name
+   callee addr  tramp addr   call addr  call info
+--------------  -----------  ---------  ----------------
+$.text:_auto_init_elf:rts6740_elf.lib<autoinit.obj>$0x0  $Tramp$S$$_auto_init_elf
+   c210a860     c2000080     c2000030   rts6740_elf.lib : boot.obj (.text:_c_int00)
+$.text:_system_pre_init:rts6740_elf.lib<pre_init.obj>$0x0  $Tramp$S$$_system_pre_init
+   c210cba0     c2000090     c2000020   rts6740_elf.lib : boot.obj (.text:_c_int00)
+
+[2 trampolines]
+[2 trampoline calls]
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                           
+-------   ----                           
+c210cbc0  C$$EXIT                        
+c210c758  C$$IO$$                        
+c210b534  DebugPrintf                    
+c210b50c  DebugUartInit                  
+c21076f0  DispXp1                        
+c2104a38  DumpBuffer                     
+c2105614  ExcCombineAdd                  
+c2105660  ExcCombineRemove               
+c21055f0  ExcGlobalEnable                
+c21003c9  Flag                           
+c2106254  GPIOBankIntDisable             
+c2106228  GPIOBankIntEnable              
+c21089ec  GPIOBankPinInterruptInit       
+c2106284  GPIOBankPinsWrite              
+c2105e20  GPIODirModeGet                 
+c2105d80  GPIODirModeSet                 
+c21060e0  GPIOIntTypeGet                 
+c2105f6c  GPIOIntTypeSet                 
+c21061d8  GPIOPinIntClear                
+c2106170  GPIOPinIntStatus               
+c2105f08  GPIOPinRead                    
+c2105e84  GPIOPinWrite                   
+c21090e4  GPIO_getInput                  
+c2109060  GPIO_setDir                    
+c2109158  GPIO_setOutput                 
+c210c1e0  HOSTclose                      
+c210b5a0  HOSTlseek                      
+c210b680  HOSTopen                       
+c210bca0  HOSTread                       
+c210a3c0  HOSTrename                     
+c210bd60  HOSTunlink                     
+c210b760  HOSTwrite                      
+c21083e0  I2C_init                       
+c21084cc  I2C_read                       
+c2108634  I2C_write                      
+c21051a0  IntDSPINTCInit                 
+c2105554  IntDisable                     
+c2105524  IntEnable                      
+c210530c  IntEventClear                  
+c2105464  IntEventCombineAdd             
+c2105348  IntEventCombineInit            
+c2105500  IntEventCombineRegister        
+c21054b0  IntEventCombineRemove          
+c2105258  IntEventMap                    
+c21052d0  IntEventSet                    
+c21055b8  IntGlobalDisable               
+c21055a0  IntGlobalEnable                
+c21055d0  IntGlobalRestore               
+c2105208  IntRegister                    
+c2105588  IntReset                       
+c210522c  IntUnRegister                  
+c2108940  InterruptInit                  
+c2108950  KEYIsr                         
+c21088c8  KEY_init                       
+c21003dc  LBufRecvCounter                
+c210ae90  LED1_OFF                       
+c210ae80  LED1_ON                        
+c210aeb4  LED2_OFF                       
+c210aea4  LED2_ON                        
+c21087d8  LED3_OFF                       
+c21087c8  LED3_ON                        
+c21087ec  LED3_overturn                  
+c2108858  LED4_OFF                       
+c2108848  LED4_ON                        
+c210886c  LED4_overturn                  
+c210aec8  LED_init                       
+c210ee40  LRecvBuf                       
+c2107574  Lcd_BKOff                      
+c2107564  Lcd_BKOn                       
+c210758c  Lcd_SetPixel                   
+c21075cc  Lcd_bmp                        
+c2109300  MsDelay                        
+c210cc20  OV5640_AF_Config               
+c2103a18  OV5640_Brightness              
+c2103940  OV5640_Color_Saturation        
+c2103aa8  OV5640_Contrast                
+c2103790  OV5640_Exposure                
+c2103d2c  OV5640_Flash_Ctrl              
+c21041c4  OV5640_Focus_Constant          
+c2103fd4  OV5640_Focus_Init              
+c2104154  OV5640_Focus_Single            
+c2103e84  OV5640_ImageWin_Set            
+c2103490  OV5640_Init                    
+c2103668  OV5640_JPEG_Mode               
+c2103894  OV5640_Light_Mode              
+c2103d78  OV5640_OutSize_Set             
+c21033ac  OV5640_RD_Reg                  
+c2103700  OV5640_RGB565_Mode             
+c2103b88  OV5640_Sharpness               
+c2103c14  OV5640_Special_Effects         
+c2103ccc  OV5640_Test_Pattern            
+c2103430  OV5640_WR_Reg                  
+c210e380  OV5640_jpeg_reg_tbl            
+c2103320  OV5640_readRegister            
+c2104628  RK6748_configCache             
+c2104458  RK6748_enableDsp               
+c21042a0  RK6748_init                    
+c21042c0  RK6748_initRAM                 
+c21072a0  RK6748_lcdInit                 
+c210450c  RK6748_lpscTransition          
+c2104488  RK6748_pinmuxConfig            
+c2100398  RK6748_uartBase                
+c2106320  RK6748_uartInit                
+c2106834  RK6748_uartIntDisable          
+c2106808  RK6748_uartIntEnable           
+c2106708  RK6748_uartRx                  
+c21067e0  RK6748_uartRxInt0              
+c21067ec  RK6748_uartRxInt1              
+c21067f8  RK6748_uartRxInt2              
+c2106560  RK6748_uartSend                
+c2106690  RK6748_uartSendByte            
+c2107678  SetColor                       
+c210adb0  TEST_imageSensor               
+c2108a40  TEST_key_interrupt             
+c2107710  TEST_lcd                       
+c210af34  TEST_led                       
+c21094a0  USTIMER_delay                  
+c21093a4  USTIMER_init                   
+c2109530  USTIMER_reset                  
+c2109564  USTIMER_set                    
+c21048e4  UTIL_printMem                  
+c210b558  Uart2Init                      
+c2106880  VPIF_initReceive               
+c2106a50  VPIF_initTransmit              
+c210f5c8  __CIOBUF_                      
+c210f820  __TI_CINIT_Base                
+c210f848  __TI_CINIT_Limit               
+c210f818  __TI_Handler_Table_Base        
+c210f820  __TI_Handler_Table_Limit       
+UNDEFED   __TI_INITARRAY_Base            
+UNDEFED   __TI_INITARRAY_Limit           
+c21000a0  __TI_STACK_END                 
+00100000  __TI_STACK_SIZE                
+c21003c8  __TI_STATIC_BASE               
+00000800  __TI_SYSMEM_SIZE               
+UNDEFED   __TI_TLS_INIT_Base             
+UNDEFED   __TI_TLS_INIT_Limit            
+c210c280  __TI_cleanup                   
+c21003a4  __TI_cleanup_ptr               
+c210a9c0  __TI_closefile                 
+c210cbe0  __TI_decompress_none           
+c210cc00  __TI_decompress_rle24          
+c210be20  __TI_doflush                   
+c21003a8  __TI_dtors_ptr                 
+c21003ac  __TI_enable_exit_profile_output
+c210c9a0  __TI_frcmpyd_div               
+c21003c0  __TI_ft_end                    
+ffffffff  __TI_pprof_out_hndl            
+c2100400  __TI_printfi                   
+ffffffff  __TI_prof_data_size            
+ffffffff  __TI_prof_data_start           
+c210c500  __TI_readmsg                   
+c210c120  __TI_tls_init                  
+c210f440  __TI_tmpnams                   
+c210c700  __TI_writemsg                  
+c210b0a0  __TI_wrt_ok                    
+ffffffff  __binit__                      
+c21057c0  __c6xabi_divd                  
+c210bee0  __c6xabi_divu                  
+c2109e40  __c6xabi_divul                 
+c21095a0  __c6xabi_divull                
+c210cae0  __c6xabi_errno_addr            
+c210c9e0  __c6xabi_isinf                 
+c210c580  __c6xabi_llshl                 
+c210c760  __c6xabi_llshru                
+ffffffff  __c_args__                     
+c210bee0  __divu                         
+c21003c4  __errno                        
+c210ca60  _args_main                     
+c210a860  _auto_init_elf                 
+c2102bcc  _c674x_mask_int10_isr          
+c2102d04  _c674x_mask_int11_isr          
+c2102e38  _c674x_mask_int12_isr          
+c2102f70  _c674x_mask_int13_isr          
+c21030a8  _c674x_mask_int14_isr          
+c21031dc  _c674x_mask_int15_isr          
+c2102484  _c674x_mask_int4_isr           
+c21025b8  _c674x_mask_int5_isr           
+c21026f0  _c674x_mask_int6_isr           
+c2102828  _c674x_mask_int7_isr           
+c210295c  _c674x_mask_int8_isr           
+c2102a94  _c674x_mask_int9_isr           
+c21020e0  _c674x_nmi_isr                 
+c2102214  _c674x_rsvd_int2_isr           
+c210234c  _c674x_rsvd_int3_isr           
+c2000000  _c_int00                       
+c210e060  _ctypes_                       
+c2100320  _device                        
+c21000a0  _ftable                        
+c210a000  _intcVectorTable               
+c21003b8  _lock                          
+c210c320  _minit                         
+c210cb00  _nop                           
+c20000a0  _stack                         
+c2100280  _stream                        
+c210c7c0  _subcull                       
+c210e640  _sys_memory                    
+c210cb80  _system_post_cinit             
+c210cba0  _system_pre_init               
+c21003bc  _unlock                        
+c210cbc0  abort                          
+c210b1a0  atoi                           
+ffffffff  binit                          
+c210e428  bitval_u32                     
+c210b840  close                          
+c210b2a0  copy_in                        
+c21003ca  count                          
+c2108780  delays                         
+c21003c4  errno                          
+c210b920  exit                           
+c210c600  finddevice                     
+c2109800  fputc                          
+c2108000  fputs                          
+c21077a0  free                           
+c210a200  frexp                          
+c210a200  frexpl                         
+c210ac40  fseek                          
+c21003d0  g_ptLcdcReg                    
+c21003d4  g_ptSysconfig0Reg              
+c210b404  get_camera_out                 
+c210ab00  getdevice                      
+c2104694  init_psc                       
+c21003c8  key_done_flag                  
+c210a560  ldexp                          
+c210a560  ldexpl                         
+c210c820  lseek                          
+c210ba00  ltoa                           
+c210b3a0  main                           
+c210a6e0  malloc                         
+c210c880  memccpy                        
+c210c3c0  memcpy                         
+c210bae0  memset                         
+c210dc10  ov5640_init_reg_tbl            
+c210e218  ov5640_rgb565_reg_tbl          
+c210f5c0  parmbuf                        
+c21003cc  pic                            
+c210bbc0  printf                         
+c2109800  putc                           
+c210c680  remove                         
+c210ad60  rgb565_test                    
+c2108b14  select_delay_display           
+c2109a20  setvbuf                        
+c210c8e0  sprintf                        
+c2108aa0  start_keys_scan                
+c210c680  unlink                         
+c210c940  write                          
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                           
+-------   ----                           
+00000800  __TI_SYSMEM_SIZE               
+00100000  __TI_STACK_SIZE                
+c2000000  _c_int00                       
+c20000a0  _stack                         
+c21000a0  __TI_STACK_END                 
+c21000a0  _ftable                        
+c2100280  _stream                        
+c2100320  _device                        
+c2100398  RK6748_uartBase                
+c21003a4  __TI_cleanup_ptr               
+c21003a8  __TI_dtors_ptr                 
+c21003ac  __TI_enable_exit_profile_output
+c21003b8  _lock                          
+c21003bc  _unlock                        
+c21003c0  __TI_ft_end                    
+c21003c4  __errno                        
+c21003c4  errno                          
+c21003c8  __TI_STATIC_BASE               
+c21003c8  key_done_flag                  
+c21003c9  Flag                           
+c21003ca  count                          
+c21003cc  pic                            
+c21003d0  g_ptLcdcReg                    
+c21003d4  g_ptSysconfig0Reg              
+c21003dc  LBufRecvCounter                
+c2100400  __TI_printfi                   
+c21020e0  _c674x_nmi_isr                 
+c2102214  _c674x_rsvd_int2_isr           
+c210234c  _c674x_rsvd_int3_isr           
+c2102484  _c674x_mask_int4_isr           
+c21025b8  _c674x_mask_int5_isr           
+c21026f0  _c674x_mask_int6_isr           
+c2102828  _c674x_mask_int7_isr           
+c210295c  _c674x_mask_int8_isr           
+c2102a94  _c674x_mask_int9_isr           
+c2102bcc  _c674x_mask_int10_isr          
+c2102d04  _c674x_mask_int11_isr          
+c2102e38  _c674x_mask_int12_isr          
+c2102f70  _c674x_mask_int13_isr          
+c21030a8  _c674x_mask_int14_isr          
+c21031dc  _c674x_mask_int15_isr          
+c2103320  OV5640_readRegister            
+c21033ac  OV5640_RD_Reg                  
+c2103430  OV5640_WR_Reg                  
+c2103490  OV5640_Init                    
+c2103668  OV5640_JPEG_Mode               
+c2103700  OV5640_RGB565_Mode             
+c2103790  OV5640_Exposure                
+c2103894  OV5640_Light_Mode              
+c2103940  OV5640_Color_Saturation        
+c2103a18  OV5640_Brightness              
+c2103aa8  OV5640_Contrast                
+c2103b88  OV5640_Sharpness               
+c2103c14  OV5640_Special_Effects         
+c2103ccc  OV5640_Test_Pattern            
+c2103d2c  OV5640_Flash_Ctrl              
+c2103d78  OV5640_OutSize_Set             
+c2103e84  OV5640_ImageWin_Set            
+c2103fd4  OV5640_Focus_Init              
+c2104154  OV5640_Focus_Single            
+c21041c4  OV5640_Focus_Constant          
+c21042a0  RK6748_init                    
+c21042c0  RK6748_initRAM                 
+c2104458  RK6748_enableDsp               
+c2104488  RK6748_pinmuxConfig            
+c210450c  RK6748_lpscTransition          
+c2104628  RK6748_configCache             
+c2104694  init_psc                       
+c21048e4  UTIL_printMem                  
+c2104a38  DumpBuffer                     
+c21051a0  IntDSPINTCInit                 
+c2105208  IntRegister                    
+c210522c  IntUnRegister                  
+c2105258  IntEventMap                    
+c21052d0  IntEventSet                    
+c210530c  IntEventClear                  
+c2105348  IntEventCombineInit            
+c2105464  IntEventCombineAdd             
+c21054b0  IntEventCombineRemove          
+c2105500  IntEventCombineRegister        
+c2105524  IntEnable                      
+c2105554  IntDisable                     
+c2105588  IntReset                       
+c21055a0  IntGlobalEnable                
+c21055b8  IntGlobalDisable               
+c21055d0  IntGlobalRestore               
+c21055f0  ExcGlobalEnable                
+c2105614  ExcCombineAdd                  
+c2105660  ExcCombineRemove               
+c21057c0  __c6xabi_divd                  
+c2105d80  GPIODirModeSet                 
+c2105e20  GPIODirModeGet                 
+c2105e84  GPIOPinWrite                   
+c2105f08  GPIOPinRead                    
+c2105f6c  GPIOIntTypeSet                 
+c21060e0  GPIOIntTypeGet                 
+c2106170  GPIOPinIntStatus               
+c21061d8  GPIOPinIntClear                
+c2106228  GPIOBankIntEnable              
+c2106254  GPIOBankIntDisable             
+c2106284  GPIOBankPinsWrite              
+c2106320  RK6748_uartInit                
+c2106560  RK6748_uartSend                
+c2106690  RK6748_uartSendByte            
+c2106708  RK6748_uartRx                  
+c21067e0  RK6748_uartRxInt0              
+c21067ec  RK6748_uartRxInt1              
+c21067f8  RK6748_uartRxInt2              
+c2106808  RK6748_uartIntEnable           
+c2106834  RK6748_uartIntDisable          
+c2106880  VPIF_initReceive               
+c2106a50  VPIF_initTransmit              
+c21072a0  RK6748_lcdInit                 
+c2107564  Lcd_BKOn                       
+c2107574  Lcd_BKOff                      
+c210758c  Lcd_SetPixel                   
+c21075cc  Lcd_bmp                        
+c2107678  SetColor                       
+c21076f0  DispXp1                        
+c2107710  TEST_lcd                       
+c21077a0  free                           
+c2108000  fputs                          
+c21083e0  I2C_init                       
+c21084cc  I2C_read                       
+c2108634  I2C_write                      
+c2108780  delays                         
+c21087c8  LED3_ON                        
+c21087d8  LED3_OFF                       
+c21087ec  LED3_overturn                  
+c2108848  LED4_ON                        
+c2108858  LED4_OFF                       
+c210886c  LED4_overturn                  
+c21088c8  KEY_init                       
+c2108940  InterruptInit                  
+c2108950  KEYIsr                         
+c21089ec  GPIOBankPinInterruptInit       
+c2108a40  TEST_key_interrupt             
+c2108aa0  start_keys_scan                
+c2108b14  select_delay_display           
+c2109060  GPIO_setDir                    
+c21090e4  GPIO_getInput                  
+c2109158  GPIO_setOutput                 
+c2109300  MsDelay                        
+c21093a4  USTIMER_init                   
+c21094a0  USTIMER_delay                  
+c2109530  USTIMER_reset                  
+c2109564  USTIMER_set                    
+c21095a0  __c6xabi_divull                
+c2109800  fputc                          
+c2109800  putc                           
+c2109a20  setvbuf                        
+c2109e40  __c6xabi_divul                 
+c210a000  _intcVectorTable               
+c210a200  frexp                          
+c210a200  frexpl                         
+c210a3c0  HOSTrename                     
+c210a560  ldexp                          
+c210a560  ldexpl                         
+c210a6e0  malloc                         
+c210a860  _auto_init_elf                 
+c210a9c0  __TI_closefile                 
+c210ab00  getdevice                      
+c210ac40  fseek                          
+c210ad60  rgb565_test                    
+c210adb0  TEST_imageSensor               
+c210ae80  LED1_ON                        
+c210ae90  LED1_OFF                       
+c210aea4  LED2_ON                        
+c210aeb4  LED2_OFF                       
+c210aec8  LED_init                       
+c210af34  TEST_led                       
+c210b0a0  __TI_wrt_ok                    
+c210b1a0  atoi                           
+c210b2a0  copy_in                        
+c210b3a0  main                           
+c210b404  get_camera_out                 
+c210b50c  DebugUartInit                  
+c210b534  DebugPrintf                    
+c210b558  Uart2Init                      
+c210b5a0  HOSTlseek                      
+c210b680  HOSTopen                       
+c210b760  HOSTwrite                      
+c210b840  close                          
+c210b920  exit                           
+c210ba00  ltoa                           
+c210bae0  memset                         
+c210bbc0  printf                         
+c210bca0  HOSTread                       
+c210bd60  HOSTunlink                     
+c210be20  __TI_doflush                   
+c210bee0  __c6xabi_divu                  
+c210bee0  __divu                         
+c210c120  __TI_tls_init                  
+c210c1e0  HOSTclose                      
+c210c280  __TI_cleanup                   
+c210c320  _minit                         
+c210c3c0  memcpy                         
+c210c500  __TI_readmsg                   
+c210c580  __c6xabi_llshl                 
+c210c600  finddevice                     
+c210c680  remove                         
+c210c680  unlink                         
+c210c700  __TI_writemsg                  
+c210c758  C$$IO$$                        
+c210c760  __c6xabi_llshru                
+c210c7c0  _subcull                       
+c210c820  lseek                          
+c210c880  memccpy                        
+c210c8e0  sprintf                        
+c210c940  write                          
+c210c9a0  __TI_frcmpyd_div               
+c210c9e0  __c6xabi_isinf                 
+c210ca60  _args_main                     
+c210cae0  __c6xabi_errno_addr            
+c210cb00  _nop                           
+c210cb80  _system_post_cinit             
+c210cba0  _system_pre_init               
+c210cbc0  C$$EXIT                        
+c210cbc0  abort                          
+c210cbe0  __TI_decompress_none           
+c210cc00  __TI_decompress_rle24          
+c210cc20  OV5640_AF_Config               
+c210dc10  ov5640_init_reg_tbl            
+c210e060  _ctypes_                       
+c210e218  ov5640_rgb565_reg_tbl          
+c210e380  OV5640_jpeg_reg_tbl            
+c210e428  bitval_u32                     
+c210e640  _sys_memory                    
+c210ee40  LRecvBuf                       
+c210f440  __TI_tmpnams                   
+c210f5c0  parmbuf                        
+c210f5c8  __CIOBUF_                      
+c210f818  __TI_Handler_Table_Base        
+c210f820  __TI_CINIT_Base                
+c210f820  __TI_Handler_Table_Limit       
+c210f848  __TI_CINIT_Limit               
+ffffffff  __TI_pprof_out_hndl            
+ffffffff  __TI_prof_data_size            
+ffffffff  __TI_prof_data_start           
+ffffffff  __binit__                      
+ffffffff  __c_args__                     
+ffffffff  binit                          
+UNDEFED   __TI_INITARRAY_Base            
+UNDEFED   __TI_INITARRAY_Limit           
+UNDEFED   __TI_TLS_INIT_Base             
+UNDEFED   __TI_TLS_INIT_Limit            
+
+[246 symbols]
